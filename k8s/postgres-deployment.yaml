@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: database
+  template:
+    metadata:
+      labels:
+        component: database
+    spec:
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: database-persistent-volume-claim
+      containers:
+      - name: postgres
+        image: postgres
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "0.25"
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+          subPath: postgres
+        env:
+        - name: POSTGRES_DB
+          value: docker-udemy-multi-services
+        - name: POSTGRES_USER
+          value: douglira
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-password-secret
+              key: PGPASSWORD
+          
