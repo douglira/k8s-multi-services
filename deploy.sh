@@ -1,6 +1,6 @@
-docker build -f /client/Dockerfile -t douglira/multi-webapp:latest -t douglira/multi-webapp:$SHA ./client
-docker build -f /server/Dockerfile -t douglira/multi-server:latest -t douglira/multi-server:$SHA ./server
-docker build -f /worker/Dockerfile -t douglira/multi-worker:latest -t douglira/multi-worker:$SHA ./worker
+docker build -t douglira/multi-webapp:latest -t douglira/multi-webapp:$SHA ./client
+docker build -t douglira/multi-server:latest -t douglira/multi-server:$SHA ./server
+docker build -t douglira/multi-worker:latest -t douglira/multi-worker:$SHA ./worker
 
 docker push douglira/multi-webapp:latest
 docker push douglira/multi-server:latest
