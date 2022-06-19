@@ -21,8 +21,6 @@ before_install:
   - gcloud container clusters get-credentials multi-services
   - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
   - docker build -f ./client/development.Dockerfile -t douglira/test-webapp ./client
-  - echo "COMMIT SHA $SHA"
-  - echo "TAVIS COMMIT $TRAVIS_COMMIT"
 
 script:
   - docker run -e CI=true douglira/test-webapp npm run test
