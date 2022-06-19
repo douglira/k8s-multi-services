@@ -17,8 +17,8 @@ spec:
         image: douglira/multi-worker
         resources:
           limits:
-            memory: "256Mi"
-            cpu: "800m"
+            memory: "128Mi"
+            cpu: "0.15"
         env:
         - name: REDIS_HOST
           value: redis-cluster-ip-service
