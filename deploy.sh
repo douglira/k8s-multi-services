@@ -1,8 +1,3 @@
-#!/bin/bash
-
-echo "COMMIT SHA $SHA"
-echo "TAVIS COMMIT $TRAVIS_COMMIT"
-
 docker build -f /client/Dockerfile -t douglira/multi-webapp:latest -t douglira/multi-webapp:$TRAVIS_COMMIT ./client
 docker build -f /server/Dockerfile -t douglira/multi-server:latest -t douglira/multi-server:$TRAVIS_COMMIT ./server
 docker build -f /worker/Dockerfile -t douglira/multi-worker:latest -t douglira/multi-worker:$TRAVIS_COMMIT ./worker
