@@ -15,10 +15,6 @@ spec:
       containers:
       - name: server
         image: douglira/multi-server
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "250m"
         ports:
         - containerPort: 5000
         env:

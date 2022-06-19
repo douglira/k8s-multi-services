@@ -15,10 +15,6 @@ spec:
       containers:
       - name: redis
         image: redis
-        resources:
-          limits:
-            memory: "1Gi"
-            cpu: "250m"
         ports:
         - containerPort: 6379
           protocol: TCP

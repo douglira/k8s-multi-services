@@ -15,10 +15,6 @@ spec:
       containers:
       - name: worker
         image: douglira/multi-worker
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "250m"
         env:
         - name: REDIS_HOST
           value: redis-cluster-ip-service
