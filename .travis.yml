@@ -24,6 +24,8 @@ before_install:
   - source $HOME/.bashrc
 
 script:
+  - echo "COMMIT SHA $SHA"
+  - echo "TRAVIS COMMIT $TRAVIS_COMMIT"
   - docker run -e CI=true douglira/test-webapp npm run test
 
 deploy:
